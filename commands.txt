@@ -1,0 +1,67 @@
+#1
+maxim = User.objects.create_user(username='Maxim')
+mihail = User.objects.create_user(username='Mihail')
+#2
+a1 = Author.objects.create(user=maxim)
+a2 = Author.objects.create(user=mihail)
+#3
+sport = Category.objects.create(category_type='sport')
+politics = Category.objects.create(category_type='politics')
+education = Category.objects.create(category_type='education')
+vehicles = Category.objects.create(category_type='vehicles')
+#4
+article1 = Post.objects.create(author=a1, post_type='AR', title='Вилла')
+article2 = Post.objects.create(author=a1, post_type='AR', title='Небоскрёб')
+news1 = Post.objects.create(author=a2, post_type='NW', title='Коттедж')
+#5
+one = PostCategory.objects.create(post=article1, category=sport)
+two = PostCategory.objects.create(post=article1, category=education)
+three = PostCategory.objects.create(post=article2, category=vehicles)
+four = PostCategory.objects.create(post=article2, category=politics)
+five = PostCategory.objects.create(post=news1, category=sport)
+six = PostCategory.objects.create(post=news1, category=vehicles)
+#6
+c1 = Comment.objects.create(post=news1, user=a1.user, text='Cool!)')
+c2 = Comment.objects.create(post=news1, user=a1.user, text="That's what I thought.")
+c3 = Comment.objects.create(post=news1, user=a2.user, text='It was hard')
+c4 = Comment.objects.create(post=news1, user=a2.user, text='my work')
+c5 = Comment.objects.create(post=article1, user=a2.user, text='asdasd555555')
+c6 = Comment.objects.create(post=article1, user=a2.user, text="aSADsdasd")
+c7 = Comment.objects.create(post=article1, user=a1.user, text='as123123dasd')
+c8 = Comment.objects.create(post=article1, user=a1.user, text='asdasda6h6h6')
+c9 = Comment.objects.create(post=article2, user=a1.user, text='bbbb')
+c10 = Comment.objects.create(post=article2, user=a2.user, text="aaaaa")
+c11 = Comment.objects.create(post=article2, user=a1.user, text='cccccc')
+c12 = Comment.objects.create(post=article2, user=a1.user, text='asdasd123')
+#7
+article1.like()
+article2.dislike()
+news1.like()
+c1.like()
+c2.dislike()
+c3.like()
+c4.like()
+c5.dislike()
+c6.like()
+c7.like()
+c8.dislike()
+c9.like()
+c10.like()
+c11.dislike()
+c12.dislike()
+#8
+a1.update_rating()
+a2.update_rating()
+#9
+best_user = Author.objects.order_by('-rating').first()
+#10
+post = Post.objects.order_by('-rating')[:1].values('date_time', 'author__user__username', 'rating', 'title')
+print(post)
+Post.objects.order_by('-rating').first().preview()
+#11
+Comment.objects.filter(post=Post.objects.order_by('-rating').first())
+for i in comments:
+    print(i.date_time, i.user, i.rating, i.text)
+
+
+
