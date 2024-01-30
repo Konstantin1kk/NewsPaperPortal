@@ -59,7 +59,7 @@ post = Post.objects.order_by('-rating')[:1].values('date_time', 'author__user__u
 print(post)
 Post.objects.order_by('-rating').first().preview()
 #11
-Comment.objects.filter(post=Post.objects.order_by('-rating').first())
+comments = Comment.objects.filter(post=Post.objects.order_by('-rating').first())
 for i in comments:
     print(i.date_time, i.user, i.rating, i.text)
 
