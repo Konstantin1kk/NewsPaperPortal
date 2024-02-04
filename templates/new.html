@@ -6,5 +6,5 @@
 
 
 {% block content %}
-    {{ post }}
+    <h3>{{ post.title }}, {{ post.date_time|date:"d.m.Y" }}, rating: {{ post.rating }} <p>{{ post.text }}</p></h3>
 {% endblock content %}

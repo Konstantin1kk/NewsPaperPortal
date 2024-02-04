@@ -35,7 +35,7 @@ class Post(models.Model):
     post_type = models.CharField(choices=CHOICES, default=article, max_length=2)
     category = models.ManyToManyField(Category, through='PostCategory')
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=120)
     text = models.TextField()
     rating = models.IntegerField(default=0)
 
@@ -51,7 +51,7 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.title}: рэйтинг {self.rating}'
+        return f'{self.title}: rating {self.rating}'
 
 
 class PostCategory(models.Model):

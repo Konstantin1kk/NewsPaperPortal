@@ -4,6 +4,7 @@ from .models import Post
 
 class NewsListView(ListView):
     model = Post
+    ordering = ['date_time']
     template_name = 'news.html'
     context_object_name = 'posts'
 
