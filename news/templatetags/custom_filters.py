@@ -3,7 +3,7 @@ from django import template
 register = template.Library()
 
 BLOCKED_WORDS = (
-    'дурачок', 'дурак', 'дебил', 'придурок',
+    'дурачок', 'дурак', 'дебил', 'придурок'
 )
 
 
