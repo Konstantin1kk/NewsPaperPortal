@@ -1,4 +1,5 @@
 {% extends 'default.html' %}
+{% load custom_filters %}
 
 {% block title %}
 
@@ -6,5 +7,5 @@
 
 
 {% block content %}
-    <h3>{{ post.title }}, {{ post.date_time|date:"d.m.Y" }}, rating: {{ post.rating }} <p>{{ post.text }}</p></h3>
+    <h3>{{ post.title|censor }}, {{ post.date_time|date:"d.m.Y" }}, rating: {{ post.rating }} <p>{{ post.text|censor }}</p></h3>
 {% endblock content %}
