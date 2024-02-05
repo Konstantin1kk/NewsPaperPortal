@@ -2,7 +2,7 @@
 {% load custom_filters %}
 
 {% block title %}
-
+    {{ post.title|truncatechars:20|censor }}
 {% endblock title %}
 
 
