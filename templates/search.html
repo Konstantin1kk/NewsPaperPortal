@@ -2,16 +2,27 @@
 {% load custom_filters %}
 {% load custom_tags %}
 
+
 {% block title %}
-news
+    found
 {% endblock title %}
 
 
 {% block content %}
-<h1>All the news</h1>
-<hr>
-<p>Number of all posts: {{ paginator.count }}</p>
-<hr>
+    <hr>
+    {% if filterset.form.is_valid %}
+        {{ filterset.form.qs }}
+    {% else %}
+        Oh no x0
+    {% endif %}
+    <hr>
+
+    <form action="" method="get">
+        {% csrf_token %}
+        {{ filterset.form.as_p }}
+        <input type="submit" value="search">
+    </form>
+
     {% if posts %}
         <table>
             <tr>
@@ -52,4 +63,5 @@ news
             <a href="?{% url_replace page=page_obj.paginator.num_pages %}">{{ page_obj.paginator.num_pages }}</a>
         {% endif %}
     {% endif %}
+
 {% endblock content %}
