@@ -9,12 +9,9 @@
 
 
 {% block content %}
+    <h1>All the posts</h1>
     <hr>
-    {% if filterset.form.is_valid %}
-        {{ filterset.form.qs }}
-    {% else %}
-        Oh no x0
-    {% endif %}
+        Number of all posts: {{ paginator.count }}
     <hr>
 
     <form action="" method="get">

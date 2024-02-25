@@ -4,8 +4,6 @@ from news import views
 
 
 urlpatterns = [
-    path('', views.index),
     path('admin/', admin.site.urls),
-    path('news/', include('news.urls')),
-    path('articles/', include('news.urls')),
+    path('posts/', include('news.urls')),
 ]

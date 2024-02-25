@@ -1,13 +1,13 @@
 {% extends 'default.html' %}
 
 {% block title %}
-    create
+    edit
 {% endblock title %}
 
 {% block content %}
-    <form action="" method='post'>
+    <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="create">
-    <form>
+        <input type="submit" value="edit">
+    </form>
 {% endblock content %}

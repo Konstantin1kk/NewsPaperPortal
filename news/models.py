@@ -16,6 +16,9 @@ class Author(models.Model):
 
         self.rating = articles_author * 3 + comments_author + comments_to_author
         self.save()
+        
+    def __str__(self):
+        return self.user.username
 
 
 class Category(models.Model):
@@ -42,9 +45,6 @@ class Post(models.Model):
     title = models.CharField(max_length=120)
     text = models.TextField()
     rating = models.IntegerField(default=0)
-    
-    def get_absolute_url(self):
-        return reverse("search", args=[str(self.id)])
 
     def preview(self):
         return self.text[:124] + '...'
