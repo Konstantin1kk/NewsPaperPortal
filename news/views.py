@@ -1,7 +1,10 @@
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 from .models import Post
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
@@ -133,10 +136,13 @@ class ArticleDetailView(DetailView):
     def get_queryset(self):
         return super().get_queryset().filter(post_type='AR')
     
+    def get_object(self, queryset=None):
+        return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
+    
 
 class ArticleSearchView(ListView):
     model = Post
-    template_name = 'news.html'
+    template_name = 'search.html'
     context_object_name = 'posts'
     paginate_by = 10
     
@@ -177,6 +183,9 @@ class ArticleEditView(UpdateView):
         pk = self.get_object().pk
         return reverse_lazy('article', kwargs={'pk': pk})
     
+    def get_object(self, queryset=None):
+        return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
+    
     
 class ArticleDeleteView(DeleteView):
     model = Post
@@ -185,3 +194,6 @@ class ArticleDeleteView(DeleteView):
     
     def get_queryset(self):
         return super().get_queryset().filter(post_type='AR')
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
