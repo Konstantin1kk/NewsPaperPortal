@@ -1,5 +1,4 @@
 from django.db.models.base import Model as Model
-from django.db.models.query import QuerySet
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
