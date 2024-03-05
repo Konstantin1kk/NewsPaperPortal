@@ -1,22 +1,23 @@
 from django.db.models.base import Model as Model
-from django.db.models.query import QuerySet
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
 
 
 # all posts
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     ordering = 'date_time'
     template_name = 'news.html'
     context_object_name = 'posts'
     paginate_by = 10
+    raise_exception = True
     
 
 class PostDetailView(DetailView):
@@ -177,13 +178,14 @@ class ArticleEditView(UpdateView):
     template_name = 'edit.html'
     
     def get_queryset(self):
-        return super().get_queryset().filter(post_type='AR')
+        self.queryset = self.model.objects.filter(post_type='AR')
+        return self.queryset
     
     def get_success_url(self):
         pk = self.get_object().pk
         return reverse_lazy('article', kwargs={'pk': pk})
     
-    def get_object(self, queryset=None):
+    def get_object(self):
         return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
     
     
