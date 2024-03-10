@@ -4,20 +4,19 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from .models import Post
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
 
 
 # all posts
-class PostListView(LoginRequiredMixin, ListView):
+class PostListView(ListView):
     model = Post
     ordering = 'date_time'
     template_name = 'news.html'
     context_object_name = 'posts'
     paginate_by = 10
-    raise_exception = True
     
 
 class PostDetailView(DetailView):
@@ -82,11 +81,13 @@ class NewsSearchView(ListView):
         return context
     
 
-class NewsCreateView(CreateView):
+class NewsCreateView(PermissionRequiredMixin, CreateView):
     model = Post
     form_class = NewsForm
     template_name = 'create.html'
     success_url = reverse_lazy('news_list')
+    permission_required = ('news.add_post')
+    raise_exception = True
     
     def get_queryset(self):
         return self.model.objects.filter(post_type='NW')
@@ -96,10 +97,12 @@ class NewsCreateView(CreateView):
         return super().form_valid(form)
     
 
-class NewsEditView(UpdateView):
+class NewsEditView(PermissionRequiredMixin, UpdateView):
     form_class = NewsForm
     model = Post
     template_name = 'edit.html'
+    permission_required = ('news.change_post')
+    raise_exception = True
     
     def get_queryset(self):
         return super().get_queryset().filter(post_type='NW')
@@ -109,11 +112,13 @@ class NewsEditView(UpdateView):
         return reverse_lazy('new', kwargs={'pk': pk})
 
 
-class NewsDeleteView(DeleteView):
+class NewsDeleteView(PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = reverse_lazy('news_list')
-    
+    permission_required = ('news.delete_post')
+    raise_exception = True
+        
     def get_queryset(self):
         return super().get_queryset().filter(post_type='NW')
 
@@ -158,11 +163,13 @@ class ArticleSearchView(ListView):
         return context
     
 
-class ArticleCreateView(CreateView):
+class ArticleCreateView(PermissionRequiredMixin, CreateView):
     model = Post
     form_class = ArticleForm
     template_name = 'create.html'
     success_url = reverse_lazy('articles_list')
+    permission_required = ('news.add_post')
+    raise_exception = True
     
     def get_queryset(self):
         return super().get_queryset().filter(post_type='AR')
@@ -172,10 +179,12 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
     
 
-class ArticleEditView(UpdateView):
+class ArticleEditView(PermissionRequiredMixin, UpdateView):
     model = Post
     form_class = ArticleForm
     template_name = 'edit.html'
+    permission_required = ('news.change_post')
+    raise_exception = True
     
     def get_queryset(self):
         self.queryset = self.model.objects.filter(post_type='AR')
@@ -189,10 +198,12 @@ class ArticleEditView(UpdateView):
         return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
     
     
-class ArticleDeleteView(DeleteView):
+class ArticleDeleteView(PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = reverse_lazy('articles_list')
+    permission_required = ('news.delete_post')
+    raise_exception = True
     
     def get_queryset(self):
         return super().get_queryset().filter(post_type='AR')

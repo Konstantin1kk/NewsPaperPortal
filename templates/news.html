@@ -3,29 +3,56 @@
 {% load custom_tags %}
 
 {% block title %}
-    NewsPortal
+    NewsPaperPortal
 {% endblock title %}
 
 
 {% block content %}
-<h1>All the posts</h1>
-<hr>
-<p>Number of all posts: {{ paginator.count }}</p>
-<hr>
+    <h1>All the posts</h1>
+    <hr>
+    <p>Number of all posts: {{ paginator.count }}</p>
+    <hr>
+    {% if perms.news.add_post %}
+    Добавить <a href='{% url 'new_create' %}'>новость</a> или <a href='{% url 'article_create' %}'>статью</a>
+    <hr>
+    {% endif %}
+
     {% if posts %}
         <table>
             <tr>
+                <td>Author</td>
                 <td>Heading</td>
                 <td>Date of publication</td>
                 <td>Text</td>
+                {% if perms.news.change_post or perms.news.delete_post %}
+                    <td>Действия</td>
+                {% endif %}
             </tr>
 
             {% for post in posts %}
-            <tr>
-                <td>{{ post.title|censor }}</td>
-                <td>{{ post.date_time|date:"d.m.Y" }}</td>
-                <td>{{ post.text|truncatechars:20|censor }}</td>
-            </tr>
+                <tr>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.title|censor }}</td>
+                    <td>{{ post.date_time|date:"d.m.Y" }}</td>
+                    <td>{{ post.text|truncatechars:20|censor }}</td>
+
+                    <td>
+                    {% if perms.news.delete_post %}
+                        {% if post.post_type == 'NW' %}
+                        <a href='{% url 'new_edit' post.pk %}'>Изменить</a>
+                        {% elif post.post_type == 'AR' %}
+                        <a href='{% url 'article_edit' post.pk %}'>Изменить</a>
+                        {% endif %}
+                    {% endif %}
+                    {% if perms.news.delete_post %}
+                        {% if post.post_type == 'NW' %}
+                        <a href='{% url 'new_delete' post.pk %}'>Удалить</a>
+                        {% elif post.post_type == 'AR' %}
+                        <a href='{% url 'article_delete' post.pk %}'>Удалить</a>
+                        {% endif %}
+                    {% endif %}
+                    </td>
+                </tr>
             {% endfor %}
         </table>
     {% else %}
@@ -36,7 +63,7 @@
     {% if page_obj.has_previous %}
         <a href="?{% url_replace page=1 %}">1</a>
         {% if page_obj.previous_page_number != 1 %}
-        ...
+            ...
         <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
         {% endif %}
     {% endif %}

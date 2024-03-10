@@ -6,5 +6,5 @@ from .forms import SignUpUserForm
 class SignUpUserView(CreateView):
     model = User
     form_class = SignUpUserForm
-    success_url = 'accounts/login'
-    template_name = 'registration/login.html'
+    success_url = '/accounts/login'
+    template_name = 'registration/signup.html'
