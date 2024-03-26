@@ -1,13 +1,16 @@
-from django.db.models.base import Model as Model
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from .models import Post
+from django.shortcuts import render
+from .models import Post, Category, Subscriptions
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
+from django.db.models import Exists, OuterRef
 
 
 # all posts
@@ -210,3 +213,23 @@ class ArticleDeleteView(PermissionRequiredMixin, DeleteView):
 
     def get_object(self, queryset=None):
         return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
+
+
+@login_required
+@csrf_protect
+def subscriptions(request):
+    if request.method == 'POST':
+        category_id = request.POST.get('category_id')
+        category = Category.objects.get(id=category_id)
+        action = request.POST.get('action')
+        if action == 'subscribe':
+            Subscriptions.objects.create(user=request.user, category=category)
+        elif action == 'unsubscribe':
+            Subscriptions.objects.get(user=request.user, category=category).delete()
+
+    categories_with_subscriptions = Category.objects.annotate(user_subscribed=Exists(
+        Subscriptions.objects.filter(user=request.user, category=OuterRef('pk'))
+        )
+    ).order_by('category_type')
+
+    return render(request, 'subscriptions.html', {'categories': categories_with_subscriptions})

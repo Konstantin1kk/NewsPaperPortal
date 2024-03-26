@@ -1,2 +1,4 @@
 Python==3.8
 Django==4.2.9
+django-filter==23.5
+django-allauth==0.54.0

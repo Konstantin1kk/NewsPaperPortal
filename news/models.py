@@ -23,6 +23,8 @@ class Author(models.Model):
 
 class Category(models.Model):
     category_type = models.CharField(max_length=100, unique=True)
+    # поле через которое можно будет обращаться к категориям пользователей через объект пользователя
+    subscribers = models.ManyToManyField(User, related_name='categories')
     
     def __str__(self):
         return self.category_type
@@ -81,3 +83,8 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+
+class Subscriptions(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='subscriptions')
+    category = models.ForeignKey(to=Category, on_delete=models.CASCADE, related_name='subscriptions')

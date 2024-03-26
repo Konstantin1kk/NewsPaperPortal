@@ -4641,7 +4641,9 @@ textarea.form-control-lg {
 }
 
 .alert-link {
+  text-decoration: none;
   font-weight: 700;
+  text-align: center;
 }
 
 .alert-dismissible {

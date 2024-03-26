@@ -1,0 +1,24 @@
+{% extends 'default.html' %}
+
+{% block title %}
+    Subscriptions
+{% endblock title %}
+
+{% block content %}
+    {% for category in categories %}
+        <p>
+            {{ category.category_type }}
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="category_id" value="{{ category.id }}">
+                {% if category.user_subscribed %}
+                    <button disabled>Subscribe</button>
+                    <button name="action" value="unsubscribe">Unsubscribe</button>
+                {% else %}
+                    <button name="action" value="subscribe">Subscribe</button>
+                    <button disabled>Unsubscribe</button>
+                {% endif %}
+            </form>
+        </p>
+    {% endfor %}
+{% endblock content %}
