@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
 from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
@@ -13,6 +12,8 @@ def post_created(instance, **kwargs):
         subscribers = []
         for category in categories:
             subscribers += category.subscribers.all()
+
+        mails = [s.email for s in subscribers]
 
         token_post = None
         if instance.post_type == 'AR':
@@ -36,9 +37,6 @@ def post_created(instance, **kwargs):
             f'{instance.preview()}'
         )
 
-        for subscriber in subscribers:
-            msg = EmailMultiAlternatives(subject=subject, body=text_content, from_email=None, to=[subscriber.email])
-            msg.attach_alternative(html_content, 'text/html')
-            msg.send()
-    else:
-        return
+        msg = EmailMultiAlternatives(subject=subject, body=text_content, from_email=None, to=mails)
+        msg.attach_alternative(html_content, 'text/html')
+        msg.send()
