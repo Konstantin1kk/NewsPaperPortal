@@ -24,7 +24,7 @@ class Author(models.Model):
 class Category(models.Model):
     category_type = models.CharField(max_length=100, unique=True)
     # поле через которое можно будет обращаться к категориям пользователей через объект пользователя
-    subscribers = models.ManyToManyField(User, related_name='categories')
+    subscribers = models.ManyToManyField(User, related_name='categories', through='Subscriptions')
     
     def __str__(self):
         return self.category_type
