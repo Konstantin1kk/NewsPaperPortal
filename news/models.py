@@ -23,7 +23,6 @@ class Author(models.Model):
 
 class Category(models.Model):
     category_type = models.CharField(max_length=100, unique=True)
-    # поле через которое можно будет обращаться к категориям пользователей через объект пользователя
     subscribers = models.ManyToManyField(User, related_name='categories', through='Subscriptions')
     
     def __str__(self):
@@ -58,6 +57,15 @@ class Post(models.Model):
     def dislike(self):
         self.rating += 1
         self.save()
+
+    def get_absolute_url(self):
+        post_type = None
+        if self.post_type == 'NW':
+            post_type = 'news'
+        else:
+            post_type = 'articles'
+
+        return f'{post_type}/{self.pk}'
 
     def __str__(self):
         return f'{self.title}: rating {self.rating}'
