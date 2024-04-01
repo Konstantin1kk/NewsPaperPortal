@@ -152,3 +152,10 @@ SERVER_EMAIL = 'NewsPaperPortal@yandex.ru'
 MANAGERS = (
     ('Petr', 'vostryakov.aleksandr.56@mail.ru'),
 )
+
+
+CELERY_BROKER_URL = 'redis://default:Cl1y3XTrbZJ3CB8je0pLHEqRlsjxeoFh@redis-16105.c1.asia-northeast1-1.gce.cloud.redislabs.com:16105'
+CELERY_RESULT_BACKEND = 'redis://default:Cl1y3XTrbZJ3CB8je0pLHEqRlsjxeoFh@redis-16105.c1.asia-northeast1-1.gce.cloud.redislabs.com:16105'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
