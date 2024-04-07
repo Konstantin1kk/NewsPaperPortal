@@ -3,11 +3,13 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from celery import shared_task
 from .models import Post
+from NewsPaperProject1 import settings
 import datetime
 
 
 @shared_task
-def post_create(instance):
+def post_create(post_pk, *args, **kwargs):
+    instance = Post.objects.get(pk=post_pk)
     category = instance.category.all()
     users = User.objects.filter(subscriptions__category__in=category).distinct()
     emails = [user.email for user in users]
@@ -34,7 +36,7 @@ def post_create(instance):
 
 
 @shared_task
-def show_new_post():
+def show_new_post(*args, **kwargs):
     today = datetime.datetime.now()
     last_week = today - datetime.timedelta(days=7)
     posts = Post.objects.filter(date_time__gte=last_week)

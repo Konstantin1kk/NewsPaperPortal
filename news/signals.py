@@ -7,4 +7,4 @@ from .tasks import post_create
 @receiver(signal=m2m_changed, sender=PostCategory)
 def post_created(instance, **kwargs):
     if kwargs['action'] == 'post_add':
-        post_create.delay(instance)
+        post_create.delay(instance.pk)

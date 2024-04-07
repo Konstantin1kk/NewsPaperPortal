@@ -11,7 +11,6 @@ from .forms import NewsForm, ArticleForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.db.models import Exists, OuterRef
-from .tasks import hello, printer
 
 
 # all posts
