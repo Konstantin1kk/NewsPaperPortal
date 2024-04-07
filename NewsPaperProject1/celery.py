@@ -13,7 +13,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'posts_for_the_week_every_monday': {
         'task': 'news.tasks.show_new_post',
-        'schedule': crontab(),
+        'schedule': crontab(minute='0', hour='8', day_of_week='monday'),
         'args': ()
     }
 }
