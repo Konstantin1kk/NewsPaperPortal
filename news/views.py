@@ -11,6 +11,7 @@ from .forms import NewsForm, ArticleForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.db.models import Exists, OuterRef
+from django.core.cache import cache
 
 
 # all posts
@@ -64,7 +65,16 @@ class NewsDetailView(DetailView):
     context_object_name = 'post'
     
     def get_queryset(self):
-        return super().get_queryset().filter(post_type='NW')   
+        self.queryset = super().get_queryset().filter(post_type='NW')
+        return self.queryset
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'post-{self.kwargs["pk"]}', None)
+
+        if obj is None:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+            return obj
     
 
 class NewsSearchView(ListView):
