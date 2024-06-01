@@ -8,9 +8,9 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 SITE_ID = 1
 
@@ -41,6 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'middlewares.mobile.MobileOrFullMiddleware'
 ]
 
 ROOT_URLCONF = 'NewsPaperProject1.urls'
@@ -139,6 +141,10 @@ MANAGERS = (
     ('Petr', 'vostryakov.aleksandr.56@mail.ru'),
 )
 
+ADMINS = (
+    ('kostya', 'vostryakov.aleksandr.56@mail.ru'),
+)
+
 # default:Cl1y3XTrbZJ3CB8je0pLHEqRlsjxeoFh@redis-16105.c1.asia-northeast1-1.gce.cloud.redislabs.com:16105
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
@@ -151,5 +157,160 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
         'LOCATION': os.path.join(BASE_DIR, 'cache_files')
+    }
+}
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console_debug_formatter': {
+            'format': '{asctime} {levelname} {message}',
+            'style': '{'
+        },
+        'console_warning_formatter': {
+            'format': '{asctime} {levelname} {message} {pathname}',
+            'style': '{'
+        },
+        'error_critical_formatter': {
+            'format': '{asctime} {levelname} {message} {pathname} {exc_info}',
+            'style': '{'
+        },
+        'info_formatter': {
+            'format': '{asctime} {levelname} {module} {message}',
+            'style': '{'
+        },
+        'security_formatter': {
+            'format': '{asctime} {levelname} {module} {message}',
+            'style': '{'
+        },
+        'email_formatter': {
+            'format': '{asctime} {time} {levelname} {message} {pathname}',
+            'style': '{'
+        }
+    },
+
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue'
+        }
+    },
+
+    'handlers': {
+        'debug_console_handler': {
+            'class': 'logging.StreamHandler',
+            'filters': ['require_debug_true'],
+            'level': 'DEBUG',
+            'formatter': 'console_debug_formatter',
+        },
+        'warning_console_handler': {
+            'class': 'logging.StreamHandler',
+            'filters': ['require_debug_true'],
+            'level': 'WARNING',
+            'formatter': 'console_warning_formatter'
+        },
+        'info_file_handler': {
+            'class': 'logging.FileHandler',
+            'filename': 'general.log',
+            # сообщения с регистратора django
+            'filters': ['require_debug_false'],
+            'level': 'INFO',
+            'formatter': 'info_formatter'
+        },
+        'error_console_handler': {
+            'class': 'logging.StreamHandler',
+            'filters': ['require_debug_true'],
+            'level': 'ERROR',
+            'formatter': 'error_critical_formatter'
+        },
+        'critical_console_handler': {
+          'class': 'logging.StreamHandler',
+          'filters': ['require_debug_true'],
+          'level': 'CRITICAL',
+          'formatter': 'error_critical_formatter'
+        },
+        'error_file_handler': {
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+            'filters': ['require_debug_false'],
+            'level': 'ERROR',
+            'formatter': 'error_critical_formatter'
+        },
+        'critical_file_handler': {
+            'class': 'logging.FileHandler',
+            'filename': 'errors.log',
+            'filters': ['require_debug_false'],
+            'level': 'CRITICAL',
+            'formatter': 'error_critical_formatter'
+        },
+        'security_file_handler': {
+            'class': 'logging.FileHandler',
+            'filename': 'security.log',
+            'filters': ['require_debug_false'],
+            'level': 'INFO',
+            'formatter': 'security_formatter'
+        },
+        'email_handler': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'email_formatter',
+        }
+    },
+
+    'loggers': {
+        # 'debug_warning_logger': {
+        #     'handlers': ['debug_console_handler', 'warning_console_handler'],
+        #     'level': 'DEBUG',
+        #     'propagate': False
+        # },
+        # 'error_critical_logger': {
+        #     'handlers': ['error_console_handler', 'critical_console_handler'],
+        #     'level': 'ERROR',
+        #     'propagate': False
+        # },
+        # 'info_logger': {
+        #     'handlers': ['info_file_handler'],
+        #     'level': 'INFO',
+        #     # django.request, django.server, django.template, django.db.backends.
+        #     'propagate': False
+        # },
+
+        'django.request': {
+            'handlers': ['error_file_handler', 'critical_file_handler'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.server': {
+            'handlers': ['error_file_handler', 'critical_file_handler', 'email_handler'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.template': {
+            'handlers': ['error_file_handler', 'critical_file_handler'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django.security': {
+          'handlers': ['security_file_handler'],
+          'level': 'INFO',
+        },
+        'django.db.backends': {
+            'handlers': ['error_file_handler', 'critical_file_handler'],
+            'level': 'ERROR',
+            'propagate': False
+        },
+        'django': {
+            'handlers': ['debug_console_handler',
+                         'warning_console_handler',
+                         'error_console_handler',
+                         'critical_console_handler',
+                         'info_file_handler',],
+            'level': 'DEBUG',
+            'propagate': True
+        }
     }
 }
