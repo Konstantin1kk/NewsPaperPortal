@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,9 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{% block title %} {{ flatpage.title}} {% endblock title %}</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href='{% static "assets/icon.ico" %}' />
-        <!-- Core theme CSS (includes Bootstrap)-->
         <link rel="stylesheet" href='{% static "css/styles.css" %}' />
     </head>
     <body>
@@ -18,7 +17,7 @@
    <div class="container">
        {% load cache %}
        {% cache 300 head %}
-       <a class="navbar-brand" href="http://127.0.0.1:8000/posts">NewsPortal</a>
+       <a class="navbar-brand" href="http://127.0.0.1:8000/posts">{% trans 'NewsPortal' %}</a>
        <button class="navbar-toggler" type="button" data-toggle="collapse"
                data-target="#navbarResponsive"
                aria-controls="navbarResponsive" aria-expanded="false"
@@ -28,22 +27,38 @@
        <div class="collapse navbar-collapse" id="navbarResponsive">
            <ul class="navbar-nav ml-auto">
                <li class="nav-item active">
-                   <a class="nav-link" href="#">Home
+                   <a class="nav-link" href="#">{% trans 'Home' %}
                        <span class="sr-only"></span>
                    </a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/about/">About</a>
+                   <a class="nav-link" href="/about/">{% trans 'About' %}</a>
                </li>
                <li class="nav-item">
-                   <a class="nav-link" href="/contacts/">Contacts</a>
+                   <a class="nav-link" href="/contacts/">{% trans 'Contacts' %}</a>
                </li>
            </ul>
        </div>
        <div>
-               <a href="http://127.0.0.1:8000/posts/search" class="alert-link">Go find</a>
+           <form action="{% url 'set_language' %}" method="POST">
+               {% csrf_token %}
+                <input type="hidden" name="next" value="{{ redirect_to }}">
+                <select name="language" id="">
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected {% endif %}>
+                        {{ language.name_local }} - {{ language.code }}
+                        </option>
+                    {% endfor %}
+                </select>
+               <input type="submit" value="set">
+           </form>
        </div>
-        {% endcache %}
+       <div style="padding: 10px 5px;">
+               <a href="http://127.0.0.1:8000/posts/search"><img src="{% static 'assets/search.ico' %}"></a>
+       </div>
+       {% endcache %}
    </div>
     </nav>
         <!-- Page content-->

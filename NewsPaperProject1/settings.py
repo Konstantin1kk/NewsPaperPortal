@@ -8,7 +8,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
@@ -36,13 +36,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'middlewares.mobile.MobileOrFullMiddleware'
 ]
 
 ROOT_URLCONF = 'NewsPaperProject1.urls'
@@ -109,6 +111,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATH = [
+    os.path.join(BASE_DIR, 'locale')
+]
+
+LANGUAGES = [
+    ('en-us', 'English'),
+    ('ru', 'Русский')
+]
+
 
 STATIC_URL = 'static/'
 
@@ -166,7 +177,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'console_debug_formatter': {
-            'format': '{asctime} {levelname} {message}',
+            'format': '{asctime} {levelname} --[{message}]--',
             'style': '{'
         },
         'console_warning_formatter': {
@@ -186,7 +197,7 @@ LOGGING = {
             'style': '{'
         },
         'email_formatter': {
-            'format': '{asctime} {time} {levelname} {message} {pathname}',
+            'format': '{asctime} {levelname} {message} {pathname}',
             'style': '{'
         }
     },
@@ -280,7 +291,7 @@ LOGGING = {
         # },
 
         'django.request': {
-            'handlers': ['error_file_handler', 'critical_file_handler'],
+            'handlers': ['error_file_handler', 'critical_file_handler', 'email_handler'],
             'level': 'ERROR',
             'propagate': False
         },

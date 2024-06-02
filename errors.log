@@ -1,0 +1,623 @@
+2024-06-01 19:23:34,480 ERROR Internal Server Error: / C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002501463E880>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:23:34,492 ERROR "GET / HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:34,589 ERROR "GET / HTTP/1.1" 500 0 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:34,715 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000250147C3280>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:23:34,715 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:34,722 ERROR "GET /favicon.ico HTTP/1.1" 500 0 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:49,712 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x00000250144B3640>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-01 19:23:49,844 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002501450EF80>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:23:49,844 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:49,860 ERROR "GET /posts/news/ HTTP/1.1" 500 0 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:51,758 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x00000250146E8E40>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-01 19:23:51,760 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000250146E9080>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:23:51,761 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:51,805 ERROR "GET /posts/news/ HTTP/1.1" 500 0 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:52,003 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002501481F4C0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:23:52,005 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:23:52,031 ERROR "GET /favicon.ico HTTP/1.1" 500 0 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:25:07,786 ERROR Internal Server Error: / C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002521B6CB340>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:25:07,787 ERROR "GET / HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-01 19:25:07,989 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002521B813900>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-01 19:25:07,991 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:17:51,422 ERROR Internal Server Error: / C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000219AB03DD80>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:17:51,753 ERROR "GET / HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:17:51,927 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000219AB194C40>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:17:51,969 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:18:00,160 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x00000219AAFCA640>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-02 12:18:00,377 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000219AAFC9340>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:18:00,412 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:18:02,219 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x00000219AAF81740>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-02 12:18:02,271 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000219AAF81800>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:18:02,304 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:18:02,437 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x00000219AAF02300>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:18:02,895 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:20:39,377 ERROR Internal Server Error: / C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002B1728C51C0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:20:39,433 ERROR "GET / HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:20:39,477 ERROR Internal Server Error: /favicon.ico C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'AttributeError'>, AttributeError("'WSGIRequest' object has no attribute 'mobile'"), <traceback object at 0x000002B172A5E300>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\middlewares\mobile.py", line 11, in __call__
+    if request.mobile:
+AttributeError: 'WSGIRequest' object has no attribute 'mobile'
+2024-06-02 12:20:39,506 ERROR "GET /favicon.ico HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:22:18,354 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x0000022E06F81480>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-02 12:22:18,445 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:22:41,825 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x000001908D75E600>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-02 12:22:41,879 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 12:22:44,836 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("Could not parse the remainder: ''article' from ''article'"), <traceback object at 0x000001908D85A580>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 403, in do_translate
+    message_string = parser.compile_filter(bits[1])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ''article' from ''article'
+2024-06-02 12:22:44,878 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 14:47:44,765 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError('Unknown argument for \'trans\' tag: \'find\'. The only options available are \'noop\', \'context\' "xxx", and \'as VAR\'.'), <traceback object at 0x000001B2F7ECD180>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\cache.py", line 84, in do_cache
+    nodelist = parser.parse(("endcache",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 443, in do_translate
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Unknown argument for 'trans' tag: 'find'. The only options available are 'noop', 'context' "xxx", and 'as VAR'.
+2024-06-02 14:47:45,323 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-02 14:47:46,285 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError('Unknown argument for \'trans\' tag: \'find\'. The only options available are \'noop\', \'context\' "xxx", and \'as VAR\'.'), <traceback object at 0x000001B2F7ECF840>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\cache.py", line 84, in do_cache
+    nodelist = parser.parse(("endcache",))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\templatetags\i18n.py", line 443, in do_translate
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Unknown argument for 'trans' tag: 'find'. The only options available are 'noop', 'context' "xxx", and 'as VAR'.
+2024-06-02 14:47:46,983 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None

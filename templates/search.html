@@ -1,17 +1,18 @@
 {% extends 'default.html' %}
 {% load custom_filters %}
 {% load custom_tags %}
+{% load i18n %}
 
 
 {% block title %}
-    found
+    {% trans 'search post' %}
 {% endblock title %}
 
 
 {% block content %}
-    <h1>All the posts</h1>
+    <h1>{% trans 'All the posts' %}</h1>
     <hr>
-        Number of all posts: {{ paginator.count }}
+        {% trans 'Number of all posts' %}: {{ paginator.count }}
     <hr>
 
     <form action="" method="get">
@@ -23,9 +24,9 @@
     {% if posts %}
         <table>
             <tr>
-                <td>Heading</td>
-                <td>Date of publication</td>
-                <td>Text</td>
+                <td>{% trans 'Heading' %}</td>
+                <td>{% trans 'Date of publication' %}</td>
+                <td>{% trans 'Text' %}</td>
             </tr>
 
             {% for post in posts %}
@@ -37,7 +38,7 @@
             {% endfor %}
         </table>
     {% else %}
-        <h2>There are no posts</h2>
+        <h2>{% trans 'There are no posts' %}</h2>
     {% endif %}
 
     {# Информация о предыдущих страницах#}

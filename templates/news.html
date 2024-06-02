@@ -1,31 +1,32 @@
 {% extends 'default.html' %}
 {% load custom_filters %}
 {% load custom_tags %}
+{% load i18n %}
 
 {% block title %}
-    NewsPaperPortal
+    {% trans 'NewsPaperPortal' %}
 {% endblock title %}
 
 
 {% block content %}
-    <h1>All the posts</h1>
+    <h1>{% trans 'All the posts' %}</h1>
     <hr>
-    <p>Number of all posts: {{ paginator.count }}</p>
+    <p>{% trans 'Number of all posts' %}: {{ paginator.count }}</p>
     <hr>
     {% if perms.news.add_post %}
-    Добавить <a href='{% url 'new_create' %}'>новость</a> или <a href='{% url 'article_create' %}'>статью</a>
+    {% trans 'Add' %} <a href='{% url 'new_create' %}'>{% trans 'new' %}</a> {% trans 'or' %} <a href='{% url 'article_create' %}'>{% trans 'article' %}</a>
     <hr>
     {% endif %}
 
     {% if posts %}
         <table>
             <tr>
-                <td>Author</td>
-                <td>Heading</td>
-                <td>Date of publication</td>
-                <td>Text</td>
+                <td>{% trans 'Author' %}</td>
+                <td>{% trans 'Heading' %}</td>
+                <td>{% trans 'Date of publication' %}</td>
+                <td>{% trans 'Text' %}</td>
                 {% if perms.news.change_post or perms.news.delete_post %}
-                    <td>Действия</td>
+                    <td>{% trans 'Actions' %}</td>
                 {% endif %}
             </tr>
 
@@ -39,16 +40,16 @@
                     <td>
                     {% if perms.news.delete_post %}
                         {% if post.post_type == 'NW' %}
-                        <a href='{% url 'new_edit' post.pk %}'>Изменить</a>
+                        <a href='{% url 'new_edit' post.pk %}'>{% trans 'Edit' %}</a>
                         {% elif post.post_type == 'AR' %}
-                        <a href='{% url 'article_edit' post.pk %}'>Изменить</a>
+                        <a href='{% url 'article_edit' post.pk %}'>{% trans 'Edit' %}</a>
                         {% endif %}
                     {% endif %}
                     {% if perms.news.delete_post %}
                         {% if post.post_type == 'NW' %}
-                        <a href='{% url 'new_delete' post.pk %}'>Удалить</a>
+                        <a href='{% url 'new_delete' post.pk %}'>{% trans 'Delete' %}</a>
                         {% elif post.post_type == 'AR' %}
-                        <a href='{% url 'article_delete' post.pk %}'>Удалить</a>
+                        <a href='{% url 'article_delete' post.pk %}'>{% trans 'Delete' %}</a>
                         {% endif %}
                     {% endif %}
                     </td>
@@ -56,7 +57,7 @@
             {% endfor %}
         </table>
     {% else %}
-        <h2>There are no posts</h2>
+        <h2>{% trans 'There are no posts' %}</h2>
     {% endif %}
 
     {# Информация о предыдущих страницах#}
