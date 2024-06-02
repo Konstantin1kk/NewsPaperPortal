@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-02 16:19+0500\n"
+"POT-Creation-Date: 2024-06-02 20:33+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,10 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
-
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 #: .\templates\account\email\email_confirmation_message.txt:5
 #, python-format
 msgid ""
@@ -48,8 +47,6 @@ msgid "Contacts"
 msgstr "Контакты"
 
 #: .\templates\news.html:7
-#, fuzzy
-#| msgid "NewsPortal"
 msgid "NewsPaperPortal"
 msgstr "Новостной портал"
 
@@ -59,7 +56,7 @@ msgstr "Все посты"
 
 #: .\templates\news.html:14 .\templates\search.html:15
 msgid "Number of all posts"
-msgstr "Количество постов"
+msgstr "Количество всех постов"
 
 #: .\templates\news.html:17
 msgid "Add"
@@ -112,4 +109,3 @@ msgstr "Здесь нет постов"
 #: .\templates\search.html:8
 msgid "search post"
 msgstr "найти пост"
-
