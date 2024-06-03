@@ -621,3 +621,990 @@ Traceback (most recent call last):
     raise TemplateSyntaxError(
 django.template.exceptions.TemplateSyntaxError: Unknown argument for 'trans' tag: 'find'. The only options available are 'noop', 'context' "xxx", and 'as VAR'.
 2024-06-02 14:47:46,983 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:08:33,011 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_en_us'), <traceback object at 0x0000021F541CB0C0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_post.title_en_us
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 320, in render
+    if match:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 412, in __bool__
+    self._fetch_all()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_post.title_en_us
+2024-06-03 16:08:33,583 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:08:34,731 ERROR Internal Server Error: /posts/news/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('no such column: news_post.title_en_us'), <traceback object at 0x0000021F542D62C0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: news_post.title_en_us
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\template\defaulttags.py", line 320, in render
+    if match:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 412, in __bool__
+    self._fetch_all()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: news_post.title_en_us
+2024-06-03 16:08:34,841 ERROR "GET /posts/news/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:30:57,530 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('database is locked'), <traceback object at 0x000001B367842280>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\models.py", line 71, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+2024-06-03 16:30:57,952 ERROR "POST /posts/news/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:32:20,389 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'kombu.exceptions.OperationalError'>, OperationalError('Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.'), <traceback object at 0x000001B3673F2680>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 927, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 756, in execute_command
+    self.connection = self.connection_pool.get_connection(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 798, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\commands\core.py", line 2016, in mget
+    return self.execute_command("MGET", *args, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 543, in save
+    self._save_m2m()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 524, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related.py", line 1956, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1236, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1137, in add
+    self._add_items(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1447, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\signals.py", line 10, in post_created
+    post_create.delay(instance.pk)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 796, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2024-06-03 16:35:20,164 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('database is locked'), <traceback object at 0x000002965EC621C0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\models.py", line 71, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+2024-06-03 16:35:20,241 ERROR "POST /posts/news/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:36:10,544 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'django.db.utils.OperationalError'>, OperationalError('database is locked'), <traceback object at 0x000002965EE73240>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 542, in save
+    self.instance.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\models.py", line 71, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+2024-06-03 16:36:10,637 ERROR "POST /posts/news/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:36:37,912 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'kombu.exceptions.OperationalError'>, OperationalError('Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.'), <traceback object at 0x000002965EC55840>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 927, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 756, in execute_command
+    self.connection = self.connection_pool.get_connection(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 798, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\commands\core.py", line 2016, in mget
+    return self.execute_command("MGET", *args, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 543, in save
+    self._save_m2m()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 524, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related.py", line 1956, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1236, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1137, in add
+    self._add_items(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1447, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\signals.py", line 10, in post_created
+    post_create.delay(instance.pk)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 796, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2024-06-03 16:42:10,326 ERROR Internal Server Error: /posts/articles/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'kombu.exceptions.OperationalError'>, OperationalError('Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.'), <traceback object at 0x000002965F6E3FC0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 927, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 756, in execute_command
+    self.connection = self.connection_pool.get_connection(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 798, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\commands\core.py", line 2016, in mget
+    return self.execute_command("MGET", *args, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 192, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 543, in save
+    self._save_m2m()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 524, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related.py", line 1956, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1236, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1137, in add
+    self._add_items(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1447, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\signals.py", line 10, in post_created
+    post_create.delay(instance.pk)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 796, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2024-06-03 16:42:10,376 ERROR "POST /posts/articles/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:45:00,472 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'kombu.exceptions.OperationalError'>, OperationalError('Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.'), <traceback object at 0x000002965F50E140>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 927, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 756, in execute_command
+    self.connection = self.connection_pool.get_connection(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 798, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\commands\core.py", line 2016, in mget
+    return self.execute_command("MGET", *args, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 543, in save
+    self._save_m2m()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 524, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related.py", line 1956, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1236, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1137, in add
+    self._add_items(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1447, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\signals.py", line 10, in post_created
+    post_create.delay(instance.pk)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 796, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2024-06-03 16:45:00,553 ERROR "POST /posts/news/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
+2024-06-03 16:50:01,561 ERROR Internal Server Error: /posts/news/create/ C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\utils\log.py (<class 'kombu.exceptions.OperationalError'>, OperationalError('Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.'), <traceback object at 0x0000015C41E13FC0>)
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 127, in reconnect_on_error
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 177, in _consume_from
+    self._pubsub.subscribe(key)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 927, in subscribe
+    ret_val = self.execute_command("SUBSCRIBE", *new_channels.keys())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 756, in execute_command
+    self.connection = self.connection_pool.get_connection(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 276, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 277, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 639, in _connect
+    raise err
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 798, in send_task
+    self.backend.on_task_call(P, task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 373, in on_task_call
+    self.result_consumer.consume_from(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 169, in consume_from
+    return self.start(task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 147, in start
+    self._consume_from(initial_task_id)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 176, in _consume_from
+    with self.reconnect_on_error():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 130, in reconnect_on_error
+    self._ensure(self._reconnect_pubsub, ())
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 384, in ensure
+    return retry_over_time(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\backends\redis.py", line 106, in _reconnect_pubsub
+    metas = self.backend.client.mget(self.subscribed_to)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\commands\core.py", line 2016, in mget
+    return self.execute_command("MGET", *args, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 153, in post
+    return self.form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\views.py", line 110, in form_valid
+    return super().form_valid(form)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\views\generic\edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 543, in save
+    self._save_m2m()
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\forms\models.py", line 524, in _save_m2m
+    f.save_form_data(self.instance, cleaned_data[f.name])
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related.py", line 1956, in save_form_data
+    getattr(instance, self.attname).set(data)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1236, in set
+    self.add(*new_objs, through_defaults=through_defaults)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1137, in add
+    self._add_items(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 1447, in _add_items
+    signals.m2m_changed.send(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 176, in send
+    return [
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\dispatch\dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\news\signals.py", line 10, in post_created
+    post_create.delay(instance.pk)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\task.py", line 594, in apply_async
+    return app.send_task(
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\celery\app\base.py", line 796, in send_task
+    with P.connection._reraise_as_library_errors():
+  File "C:\Users\vostr\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\kombu\connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение.
+2024-06-03 16:50:01,880 ERROR "POST /posts/news/create/ HTTP/1.1" 500 145 C:\Users\vostr\PycharmProjects\newspaper\.venv\lib\site-packages\django\core\servers\basehttp.py None
