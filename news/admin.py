@@ -1,15 +1,17 @@
 from django.contrib import admin
-from .models import Author, Category, Post, PostCategory, Comment
+from .models import Category, Post
+from modeltranslation.admin import TranslationAdmin
 
 
-class PostAdmin(admin.ModelAdmin):
+@admin.register(Post)
+class PostTranslateAdmin(TranslationAdmin):
     list_display = ('author', 'post_type', 'rating')
     list_filter = ('rating', 'date_time', 'post_type')
     search_fields = ('author', 'title')
 
 
-admin.site.register(Author)
-admin.site.register(Category)
-admin.site.register(PostCategory)
-admin.site.register(Comment)
-admin.site.register(Post, PostAdmin)
+@admin.register(Category)
+class CategoryTranslateAdmin(TranslationAdmin):
+    list_display = ('category_type', )
+    list_filter = ('category_type', )
+    search_fields = ('category_type', )
