@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load tz %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +11,9 @@
         <title>{% block title %} {{ flatpage.title}} {% endblock title %}</title>
         <link rel="icon" type="image/x-icon" href='{% static "assets/icon.ico" %}' />
         <link rel="stylesheet" href='{% static "css/styles.css" %}' />
+        <style>
+            body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %} powderblue {% endif %};}
+        </style>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -37,8 +41,31 @@
                </li>
            </ul>
        </div>
-       {% load cache %}
-       {% cache 300 head %}
+       <div>
+           {% get_current_timezone as TIME_ZONE %}
+           <form action="" method="POST">
+               {% csrf_token %}
+               <label for="timezone" style="color: white">Time zone:</label>
+               <select name="timezone">
+                    {% for tz in timezones %}
+                        <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected {% endif %}>{{ tz }}</option>
+                    {% endfor %}
+               </select>
+                <input type="submit" value="set">
+           </form>
+           <div style="color: white">
+                {{ TIME_ZONE }}
+                {{ current_time|timezone:TIME_ZONE }} <!-- Отображаем время в выбранном часовом поясе  -->
+           </div>
+
+            {% for model in models %}
+                <div class="model-class">
+                    {{ model.name }}
+                </div>
+            {% endfor %}
+       </div>
+       <!-- load cache  -->
+       <!-- cache 300 head %} -->
        <div>
            <form action="{% url 'set_language' %}" method="POST">
                {% csrf_token %}
@@ -55,7 +82,7 @@
                <input type="submit" value="set">
            </form>
        </div>
-       {% endcache %}
+       <!--  endcache  -->
        <div style="padding: 10px 5px;">
                <a href="http://127.0.0.1:8000/posts/search"><img src="{% static 'assets/search.ico' %}"></a>
        </div>

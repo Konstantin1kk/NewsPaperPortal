@@ -14,7 +14,7 @@ urlpatterns = [
     path('news/<int:pk>/edit/', views.NewsEditView.as_view(), name='new_edit'),
     path('news/<int:pk>/delete/', views.NewsDeleteView.as_view(), name='new_delete'),
     
-    path('articles/', cache_page(60*5)(views.ArticleListView.as_view()), name='articles_list'),
+    path('articles/', views.ArticleListView.as_view(), name='articles_list'),
     path('articles/<int:pk>/', views.ArticleDetailView.as_view(), name='article'),
     path('articles/search/', views.ArticleSearchView.as_view(), name='article_search'),
     path('articles/create/', views.ArticleCreateView.as_view(), name='article_create'),

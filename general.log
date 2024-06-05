@@ -47,3 +47,13 @@
 2024-06-03 16:58:23,260 INFO autoreload C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\NewsPaperProject1\settings.py changed, reloading.
 2024-06-03 16:58:24,046 INFO autoreload Watching for file changes with StatReloader
 2024-06-03 16:58:57,297 INFO autoreload C:\Users\vostr\PycharmProjects\newspaper\NewsPaperPortal\NewsPaperProject1\settings.py changed, reloading.
+2024-06-04 20:32:02,133 INFO autoreload Watching for file changes with StatReloader
+2024-06-04 20:33:48,999 INFO autoreload C:\Users\юзер\PycharmProjects\newspaper\NewsPaperProject1\NewsPaperProject1\settings.py changed, reloading.
+2024-06-04 20:33:50,515 INFO autoreload Watching for file changes with StatReloader
+2024-06-04 20:33:54,522 INFO autoreload C:\Users\юзер\PycharmProjects\newspaper\NewsPaperProject1\NewsPaperProject1\settings.py changed, reloading.
+2024-06-04 20:33:55,463 INFO autoreload Watching for file changes with StatReloader
+2024-06-04 20:35:28,537 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
+2024-06-04 20:35:41,793 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
+2024-06-04 20:35:46,569 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
+2024-06-04 20:35:50,929 WARNING log Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
+2024-06-04 20:36:03,658 INFO autoreload C:\Users\юзер\PycharmProjects\newspaper\NewsPaperProject1\NewsPaperProject1\settings.py changed, reloading.

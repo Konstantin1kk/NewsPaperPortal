@@ -1,10 +1,11 @@
+import pytz
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView
+    ListView, DetailView, CreateView, UpdateView, DeleteView, View
 )
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Category, Subscriptions
 from .filters import PostFilter
 from .forms import NewsForm, ArticleForm
@@ -12,10 +13,24 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.db.models import Exists, OuterRef
 from django.core.cache import cache
+from django.utils import timezone
+
+
+class ViewTimeZone(View):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['model'] = self.model.objects.all()
+        context['current_time'] = timezone.localtime(timezone.now())
+        context['timezones'] = pytz.common_timezones
+        return context
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect(request.path)
 
 
 # all posts
-class PostListView(ListView):
+class PostListView(ViewTimeZone, ListView):
     model = Post
     ordering = 'date_time'
     template_name = 'news.html'
@@ -23,14 +38,14 @@ class PostListView(ListView):
     paginate_by = 10
     
 
-class PostDetailView(DetailView):
+class PostDetailView(ViewTimeZone, DetailView):
     model = Post
     ordering = 'date_time'
     template_name = 'new.html'
     context_object_name = 'post'
     
 
-class PostSearchView(ListView):
+class PostSearchView(ViewTimeZone, ListView):
     model = Post
     ordering = 'date_time'
     template_name = 'search.html'
@@ -49,7 +64,7 @@ class PostSearchView(ListView):
 
 
 # posts: news
-class NewsListView(ListView):
+class NewsListView(ViewTimeZone, ListView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'posts'
@@ -59,7 +74,7 @@ class NewsListView(ListView):
         return super().get_queryset().filter(post_type='NW')
     
     
-class NewsDetailView(DetailView):
+class NewsDetailView(ViewTimeZone, DetailView):
     model = Post
     template_name = 'new.html'
     context_object_name = 'post'
@@ -77,7 +92,7 @@ class NewsDetailView(DetailView):
             return obj
     
 
-class NewsSearchView(ListView):
+class NewsSearchView(ViewTimeZone, ListView):
     model = Post
     template_name = 'search.html'
     context_object_name = 'posts'
@@ -94,7 +109,7 @@ class NewsSearchView(ListView):
         return context
     
 
-class NewsCreateView(PermissionRequiredMixin, CreateView):
+class NewsCreateView(ViewTimeZone, PermissionRequiredMixin, CreateView):
     model = Post
     form_class = NewsForm
     template_name = 'create.html'
@@ -110,7 +125,7 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
     
 
-class NewsEditView(PermissionRequiredMixin, UpdateView):
+class NewsEditView(ViewTimeZone, PermissionRequiredMixin, UpdateView):
     form_class = NewsForm
     model = Post
     template_name = 'edit.html'
@@ -125,7 +140,7 @@ class NewsEditView(PermissionRequiredMixin, UpdateView):
         return reverse_lazy('new', kwargs={'pk': pk})
 
 
-class NewsDeleteView(PermissionRequiredMixin, DeleteView):
+class NewsDeleteView(ViewTimeZone, PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = reverse_lazy('news_list')
@@ -137,7 +152,7 @@ class NewsDeleteView(PermissionRequiredMixin, DeleteView):
 
 
 # posts: articles
-class ArticleListView(ListView):
+class ArticleListView(ViewTimeZone, ListView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'posts'
@@ -147,7 +162,7 @@ class ArticleListView(ListView):
         return super().get_queryset().filter(post_type='AR')
     
     
-class ArticleDetailView(DetailView):
+class ArticleDetailView(ViewTimeZone, DetailView):
     model = Post
     template_name = 'new.html'
     context_object_name = 'post'
@@ -159,7 +174,7 @@ class ArticleDetailView(DetailView):
         return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
     
 
-class ArticleSearchView(ListView):
+class ArticleSearchView(ViewTimeZone, ListView):
     model = Post
     template_name = 'search.html'
     context_object_name = 'posts'
@@ -176,7 +191,7 @@ class ArticleSearchView(ListView):
         return context
     
 
-class ArticleCreateView(PermissionRequiredMixin, CreateView):
+class ArticleCreateView(ViewTimeZone, PermissionRequiredMixin, CreateView):
     model = Post
     form_class = ArticleForm
     template_name = 'create.html'
@@ -192,7 +207,7 @@ class ArticleCreateView(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
     
 
-class ArticleEditView(PermissionRequiredMixin, UpdateView):
+class ArticleEditView(ViewTimeZone, PermissionRequiredMixin, UpdateView):
     model = Post
     form_class = ArticleForm
     template_name = 'edit.html'
@@ -211,7 +226,7 @@ class ArticleEditView(PermissionRequiredMixin, UpdateView):
         return get_object_or_404(self.model, pk=self.kwargs.get('pk'))
     
     
-class ArticleDeleteView(PermissionRequiredMixin, DeleteView):
+class ArticleDeleteView(ViewTimeZone, PermissionRequiredMixin, DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = reverse_lazy('articles_list')

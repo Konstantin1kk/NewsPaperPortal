@@ -37,7 +37,7 @@
                     <td>{{ post.date_time|date:"d.m.Y" }}</td>
                     <td>{{ post.text|truncatechars:20|censor }}</td>
 
-                    <td>
+                <td>
                     {% if perms.news.delete_post %}
                         {% if post.post_type == 'NW' %}
                         <a href='{% url 'new_edit' post.pk %}'>{% trans 'Edit' %}</a>
@@ -53,8 +53,9 @@
                         {% endif %}
                     {% endif %}
                     </td>
-                </tr>
-            {% endfor %}
+            </tr>
+        {% endfor %}
+
         </table>
     {% else %}
         <h2>{% trans 'There are no posts' %}</h2>

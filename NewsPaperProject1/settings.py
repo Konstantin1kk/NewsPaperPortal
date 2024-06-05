@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'middlewares.timezonemiddleware.TimeZoneMiddleware'
 ]
 
 ROOT_URLCONF = 'NewsPaperProject1.urls'
